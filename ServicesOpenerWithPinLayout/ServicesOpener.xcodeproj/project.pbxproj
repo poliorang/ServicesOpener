@@ -158,11 +158,7 @@
 		4A2F70442BB5629000938F2E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				4A2F706C2BB57EC400938F2E /* Models */,
-				4A2F70452BB5630F00938F2E /* Assembly */,
-				4A2F70422BB5623D00938F2E /* Interactor */,
-				4A2F70412BB5623600938F2E /* Presenter */,
-				4A2F70402BB5622F00938F2E /* View */,
+				4A2F70762BB62E5C00938F2E /* Opener */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -235,6 +231,18 @@
 				4A2F706D2BB57ED400938F2E /* AppService.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4A2F70762BB62E5C00938F2E /* Opener */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F706C2BB57EC400938F2E /* Models */,
+				4A2F70452BB5630F00938F2E /* Assembly */,
+				4A2F70422BB5623D00938F2E /* Interactor */,
+				4A2F70412BB5623600938F2E /* Presenter */,
+				4A2F70402BB5622F00938F2E /* View */,
+			);
+			path = Opener;
 			sourceTree = "<group>";
 		};
 		B8D6E6ED9A2CAB3C575D1F9B /* Frameworks */ = {
