@@ -20,9 +20,6 @@ final class OpenerPresenter {
     init(interactor: OpenerInteractorInput) {
         self.interactor = interactor
     }
-    
-    // MARK: - Private functions
-
 }
 
 extension OpenerPresenter: OpenerViewOutput {

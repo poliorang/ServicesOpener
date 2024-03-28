@@ -82,13 +82,13 @@ final class OpenerViewController: UIViewController {
         tableView.register(OpenerTableViewCell.self, forCellReuseIdentifier: ControllerConstants.cellIdentifier)
         tableView.delegate = tableViewDataSource
         tableView.dataSource = tableViewDataSource
+        tableView.separatorStyle = .none
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         
         errorLabel.isHidden = true
         errorLabel.text = ControllerConstants.errorLabelText
         errorLabel.textColor = .systemGray3
-        
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        tableView.refreshControl = refreshControl
     }
     
     @objc private func refreshData() {

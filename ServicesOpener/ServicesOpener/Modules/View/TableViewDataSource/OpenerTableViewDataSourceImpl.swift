@@ -26,10 +26,6 @@ final class OpenerTableViewDataSourceImpl: NSObject {
     override init() {        
         super.init()
     }
-    
-    private func setUpTableView() {
-        tableView?.separatorStyle = .none
-    }
 }
 
 extension OpenerTableViewDataSourceImpl: OpenerTableViewDataSource {
@@ -39,10 +35,7 @@ extension OpenerTableViewDataSourceImpl: OpenerTableViewDataSource {
         self.appServices = appServices
         self.tableView = tableView
     
-        DispatchQueue.main.async { [weak self] in
-            self?.setUpTableView()
-            self?.tableView?.reloadData()
-        }
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,13 +70,12 @@ extension OpenerTableViewDataSourceImpl: OpenerTableViewDataSource {
         }
         
         DispatchQueue.main.async {
-            if let app = URL(string: appService.appLink) {
-                UIApplication.shared.open(app, options: [:]) { success in
-                    if !success {
-                        if let url = URL(string: appService.link) {
-                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                        }
-                    }
+            guard let app = URL(string: appService.appLink) else { return }
+            
+            UIApplication.shared.open(app, options: [:]) { success in
+                if !success {
+                    guard let url = URL(string: appService.link) else { return }
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
             }
         }

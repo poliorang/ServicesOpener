@@ -9,10 +9,6 @@ import Foundation
 
 final class AppsServiceImpl: AppsService {
 
-    // MARK: - Private properties
-    
-//    private let url = "https://publicstorage.hb.bizmrg.com/sirius/result.json"
-    
     // MARK: - Init
 
     init() { }

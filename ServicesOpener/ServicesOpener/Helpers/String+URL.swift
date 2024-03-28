@@ -2,7 +2,7 @@
 //  String+URL.swift
 //  ServicesOpener
 //
-//  Created by Поли Оранж on 28.03.2024.
+//  Created by Polina Egorova on 28.03.2024.
 //
 
 extension String {
