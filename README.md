@@ -9,5 +9,4 @@
 - UIKit / PinLayout
 - Async/Await
 
-![Alt-текст](/Users/poliorang/Desktop/ServicesOpener/spoiler.PNG)
-
+![Alt-текст](https://github.com/poliorang/ServicesOpener/blob/main/spoiler.PNG)
