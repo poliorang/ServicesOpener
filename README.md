@@ -8,5 +8,3 @@
 - iOS 15
 - UIKit / PinLayout
 - Async/Await
-
-![Alt-текст](https://github.com/poliorang/ServicesOpener/blob/main/spoiler.PNG)
