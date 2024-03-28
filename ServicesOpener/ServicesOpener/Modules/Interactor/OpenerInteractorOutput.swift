@@ -6,5 +6,7 @@
 //
 
 protocol OpenerInteractorOutput: AnyObject {
+    func setUpAppServices(services: [AppService]?)
     
+    func refreshData()
 }

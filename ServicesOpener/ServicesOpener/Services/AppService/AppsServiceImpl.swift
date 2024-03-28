@@ -11,7 +11,7 @@ final class AppsServiceImpl: AppsService {
 
     // MARK: - Private properties
     
-    private let url = "https://publicstorage.hb.bizmrg.com/sirius/result.json"
+//    private let url = "https://publicstorage.hb.bizmrg.com/sirius/result.json"
     
     // MARK: - Init
 
@@ -19,11 +19,14 @@ final class AppsServiceImpl: AppsService {
     
     // MARK: - Public functions
     
-    public func getDataFromServer() async throws -> Data? {
-        let url = URL(string: url)!
+    public func getDataFromServer(url: String?) async throws -> Data? {
+        guard let url = url,
+              let request = URL(string: url) else {
+            return nil
+        }
 
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
+            let (data, _) = try await URLSession.shared.data(from: request)
             return data
         } catch {
             return nil

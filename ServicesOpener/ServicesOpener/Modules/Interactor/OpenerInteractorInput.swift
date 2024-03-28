@@ -6,5 +6,5 @@
 //
 
 protocol OpenerInteractorInput: AnyObject {
-    
+    func refreshData()
 }

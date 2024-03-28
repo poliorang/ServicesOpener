@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AppsService: AnyObject {
-    func getDataFromServer() async throws -> Data?
+    func getDataFromServer(url: String?) async throws -> Data?
 }

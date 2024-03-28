@@ -22,21 +22,26 @@ final class OpenerPresenter {
     }
     
     // MARK: - Private functions
-    
-//    private func setUpDateLabel() {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = Constants.dateFormat
-//        let currentDate = Date()
-//        let formattedDate = dateFormatter.string(from: currentDate)
-//
-//        view?.configureDateLabel(text: formattedDate)
-//    }
+
 }
 
 extension OpenerPresenter: OpenerViewOutput {
-
+    func setUpAppServices(services: [AppService]?) {
+        guard let services = services else {
+            DispatchQueue.main.async { [weak self] in
+                self?.view?.setUpAppErrorLabel()
+            }
+            return
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.setUpAppServices(services: services)
+        }
+    }
 }
 
 extension OpenerPresenter: OpenerInteractorOutput {
-
+    func refreshData() {
+        interactor.refreshData()
+    }
 }

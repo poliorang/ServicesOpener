@@ -6,5 +6,7 @@
 //
 
 protocol OpenerViewInput: AnyObject {
+    func setUpAppServices(services: [AppService])
     
+    func setUpAppErrorLabel()
 }

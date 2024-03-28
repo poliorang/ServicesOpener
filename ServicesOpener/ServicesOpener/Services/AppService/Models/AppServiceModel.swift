@@ -7,13 +7,25 @@
 
 import Foundation
 
-struct AppServiceModel: Codable {
-    var name: String?
-    var description: String?
-    var link: String?
-    var iconURL: String?
+struct AppServiceModel: Decodable {
+    let name: String?
+    let description: String?
+    let link: String?
+    let iconUrl: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case description
+        case link
+        case iconUrl = "icon_url"
+    }
 }
 
-struct AppServiceResponse: Codable {
-    var services: [AppServiceModel]
+struct AppServicesModel: Decodable {
+    let services: [AppServiceModel]?
+}
+
+struct AppServicesResponseModel: Decodable {
+    let body: AppServicesModel?
+    let status: Int?
 }

@@ -11,8 +11,17 @@ final class OpenerViewController: UIViewController {
 
     // MARK: - Private properties
     
+    private enum ControllerConstants {
+        static let errorLabelText: String = "Сервисы не найдены"
+        static let cellIdentifier: String = "OpenerTableViewCell"
+    }
+    
     private let output: OpenerViewOutput
     private let tableViewDataSource: OpenerTableViewDataSource
+    
+    private var tableView: UITableView
+    private var errorLabel: UILabel
+    private var refreshControl: UIRefreshControl
     
     // MARK: - Init
     
@@ -20,6 +29,10 @@ final class OpenerViewController: UIViewController {
          tableViewDataSource: OpenerTableViewDataSource) {
         self.output = output
         self.tableViewDataSource = tableViewDataSource
+        
+        self.tableView = UITableView().autolayout()
+        self.errorLabel = UILabel().autolayout()
+        self.refreshControl = UIRefreshControl().autolayout()
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -32,10 +45,74 @@ final class OpenerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
+        setUpUI()
+        configureViews()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        tableView.reloadData()
+    }
+    
+    // MARK: - Private functions
+    
+    private func setUpUI() {
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        view.addSubview(errorLabel)
+        NSLayoutConstraint.activate([
+            errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            errorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
+    private func configureViews() {
+        view.backgroundColor = .systemBackground
+        
+        tableView.register(OpenerTableViewCell.self, forCellReuseIdentifier: ControllerConstants.cellIdentifier)
+        tableView.delegate = tableViewDataSource
+        tableView.dataSource = tableViewDataSource
+        
+        errorLabel.isHidden = true
+        errorLabel.text = ControllerConstants.errorLabelText
+        errorLabel.textColor = .systemGray3
+        
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc private func refreshData() {
+        output.refreshData()
     }
 }
 
 extension OpenerViewController: OpenerViewInput {
+    func setUpAppServices(services: [AppService]) {
+        tableViewDataSource.update(
+            with: services,
+            tableView: tableView
+        )
+        refreshControl.endRefreshing()
+        errorLabel.isHidden = true
+    }
     
+    func setUpAppErrorLabel() {
+        tableViewDataSource.update(
+            with: [],
+            tableView: tableView
+        )
+        refreshControl.endRefreshing()
+        errorLabel.isHidden = false
+    }
 }
+

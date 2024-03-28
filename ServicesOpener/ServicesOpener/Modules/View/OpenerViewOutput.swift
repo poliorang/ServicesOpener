@@ -6,5 +6,5 @@
 //
 
 protocol OpenerViewOutput: AnyObject {
-    
+    func refreshData()
 }

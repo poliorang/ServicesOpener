@@ -8,5 +8,6 @@
 import UIKit
 
 protocol OpenerTableViewDataSource: UITableViewDataSource, UITableViewDelegate {
-
+    func update(with appServices: [AppService], 
+                tableView: UITableView)
 }

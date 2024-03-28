@@ -27,6 +27,8 @@
 		4A2F70662BB5688E00938F2E /* AppsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70652BB5688E00938F2E /* AppsService.swift */; };
 		4A2F70682BB5689600938F2E /* AppsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70672BB5689600938F2E /* AppsServiceImpl.swift */; };
 		4A2F706B2BB5698D00938F2E /* AppServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F706A2BB5698D00938F2E /* AppServiceModel.swift */; };
+		4A2F706E2BB57ED400938F2E /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F706D2BB57ED400938F2E /* AppService.swift */; };
+		4A2F70722BB5D18100938F2E /* AppServicesURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70712BB5D18100938F2E /* AppServicesURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		4A2F70652BB5688E00938F2E /* AppsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsService.swift; sourceTree = "<group>"; };
 		4A2F70672BB5689600938F2E /* AppsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsServiceImpl.swift; sourceTree = "<group>"; };
 		4A2F706A2BB5698D00938F2E /* AppServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServiceModel.swift; sourceTree = "<group>"; };
+		4A2F706D2BB57ED400938F2E /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		4A2F70712BB5D18100938F2E /* AppServicesURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServicesURL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 		4A2F70442BB5629000938F2E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4A2F706C2BB57EC400938F2E /* Models */,
 				4A2F70452BB5630F00938F2E /* Assembly */,
 				4A2F70422BB5623D00938F2E /* Interactor */,
 				4A2F70412BB5623600938F2E /* Presenter */,
@@ -209,6 +214,15 @@
 			isa = PBXGroup;
 			children = (
 				4A2F706A2BB5698D00938F2E /* AppServiceModel.swift */,
+				4A2F70712BB5D18100938F2E /* AppServicesURL.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4A2F706C2BB57EC400938F2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F706D2BB57ED400938F2E /* AppService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -287,6 +301,8 @@
 				4A2F704C2BB5639D00938F2E /* OpenerModuleAssembly.swift in Sources */,
 				4A2F70482BB5634100938F2E /* AssemblyFactory.swift in Sources */,
 				4A2F70682BB5689600938F2E /* AppsServiceImpl.swift in Sources */,
+				4A2F706E2BB57ED400938F2E /* AppService.swift in Sources */,
+				4A2F70722BB5D18100938F2E /* AppServicesURL.swift in Sources */,
 				4A2F70302BB5618900938F2E /* OpenerViewController.swift in Sources */,
 				4A2F702C2BB5618900938F2E /* AppDelegate.swift in Sources */,
 				4A2F705C2BB564D000938F2E /* OpenerTableViewDataSource.swift in Sources */,
