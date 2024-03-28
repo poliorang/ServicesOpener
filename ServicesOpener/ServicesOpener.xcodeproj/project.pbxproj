@@ -29,6 +29,7 @@
 		4A2F706B2BB5698D00938F2E /* AppServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F706A2BB5698D00938F2E /* AppServiceModel.swift */; };
 		4A2F706E2BB57ED400938F2E /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F706D2BB57ED400938F2E /* AppService.swift */; };
 		4A2F70722BB5D18100938F2E /* AppServicesURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70712BB5D18100938F2E /* AppServicesURL.swift */; };
+		4A2F70742BB5E3D400938F2E /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F70732BB5E3D400938F2E /* String+URL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		4A2F706A2BB5698D00938F2E /* AppServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServiceModel.swift; sourceTree = "<group>"; };
 		4A2F706D2BB57ED400938F2E /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		4A2F70712BB5D18100938F2E /* AppServicesURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServicesURL.swift; sourceTree = "<group>"; };
+		4A2F70732BB5E3D400938F2E /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				4A2F70622BB566AF00938F2E /* UIKit+AutoLayout.swift */,
+				4A2F70732BB5E3D400938F2E /* String+URL.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				4A2F70542BB5645800938F2E /* OpenerInteractor.swift in Sources */,
 				4A2F704C2BB5639D00938F2E /* OpenerModuleAssembly.swift in Sources */,
 				4A2F70482BB5634100938F2E /* AssemblyFactory.swift in Sources */,
+				4A2F70742BB5E3D400938F2E /* String+URL.swift in Sources */,
 				4A2F70682BB5689600938F2E /* AppsServiceImpl.swift in Sources */,
 				4A2F706E2BB57ED400938F2E /* AppService.swift in Sources */,
 				4A2F70722BB5D18100938F2E /* AppServicesURL.swift in Sources */,

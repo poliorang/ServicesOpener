@@ -14,6 +14,7 @@ final class OpenerTableViewCell: UITableViewCell {
     private var appServiceIconImageView: UIImageView
     private var appServiceNameLabel: UILabel
     private var appServiceDescriptionLabel: UILabel
+    private var appServiceControlImageView: UIImageView
     
     // MARK: - Init
     
@@ -21,6 +22,7 @@ final class OpenerTableViewCell: UITableViewCell {
         self.appServiceIconImageView = UIImageView().autolayout()
         self.appServiceNameLabel = UILabel().autolayout()
         self.appServiceDescriptionLabel = UILabel().autolayout()
+        self.appServiceControlImageView = UIImageView().autolayout()
     
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -30,10 +32,6 @@ final class OpenerTableViewCell: UITableViewCell {
     }
     
     // MARK: - Lifecycle
-    
-    override func layoutSubviews() {
-        
-    }
     
     override func prepareForReuse() {
         appServiceIconImageView.image = nil
@@ -78,6 +76,14 @@ final class OpenerTableViewCell: UITableViewCell {
             appServiceDescriptionLabel.leadingAnchor.constraint(equalTo: appServiceIconImageView.trailingAnchor, constant: 15),
             appServiceDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50)
         ])
+        
+        contentView.addSubview(appServiceControlImageView)
+        NSLayoutConstraint.activate([
+            appServiceControlImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            appServiceControlImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+            appServiceControlImageView.heightAnchor.constraint(equalToConstant: 16),
+            appServiceControlImageView.widthAnchor.constraint(equalToConstant: 16)
+        ])
     }
     
     private func configureViews() {
@@ -85,5 +91,8 @@ final class OpenerTableViewCell: UITableViewCell {
         appServiceDescriptionLabel.font = UIFont.systemFont(ofSize: 12)
         appServiceDescriptionLabel.numberOfLines = 3
         appServiceIconImageView.backgroundColor = .clear
+        appServiceControlImageView.image = UIImage(systemName: "control")!
+        appServiceControlImageView.tintColor = .systemGray3
+        appServiceControlImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
     }
 }

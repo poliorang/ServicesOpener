@@ -33,7 +33,18 @@ final class OpenerTableViewDataSourceImpl: NSObject {
 }
 
 extension OpenerTableViewDataSourceImpl: OpenerTableViewDataSource {
-
+    func update(with appServices: [AppService],
+                tableView: UITableView
+    ) {
+        self.appServices = appServices
+        self.tableView = tableView
+    
+        DispatchQueue.main.async { [weak self] in
+            self?.setUpTableView()
+            self?.tableView?.reloadData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return appServices?.count ?? 0
     }
@@ -49,19 +60,6 @@ extension OpenerTableViewDataSourceImpl: OpenerTableViewDataSource {
         cell.setUpUI()
         
         return cell
-    }
-    
-
-    func update(with appServices: [AppService],
-                tableView: UITableView
-    ) {
-        self.appServices = appServices
-        self.tableView = tableView
-    
-        DispatchQueue.main.async { [weak self] in
-            self?.setUpTableView()
-            self?.tableView?.reloadData()
-        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -79,8 +77,14 @@ extension OpenerTableViewDataSourceImpl: OpenerTableViewDataSource {
         }
         
         DispatchQueue.main.async {
-            if let url = URL(string: appService.link) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            if let app = URL(string: appService.appLink) {
+                UIApplication.shared.open(app, options: [:]) { success in
+                    if !success {
+                        if let url = URL(string: appService.link) {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        }
+                    }
+                }
             }
         }
     }

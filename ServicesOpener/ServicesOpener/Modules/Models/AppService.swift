@@ -11,6 +11,7 @@ struct AppService {
     let name: String
     let description: String
     let link: String
+    let appLink: String
     var icon: UIImage?
 }
 
@@ -25,6 +26,7 @@ extension AppService {
         return AppService(name: name,
                           description: description,
                           link: link,
+                          appLink: "\(link.parseURL())://app",
                           icon: nil
         )
     }
