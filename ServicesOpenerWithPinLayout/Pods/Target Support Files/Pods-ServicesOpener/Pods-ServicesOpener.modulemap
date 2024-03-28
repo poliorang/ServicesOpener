@@ -1,0 +1,6 @@
+module Pods_ServicesOpener {
+  umbrella header "Pods-ServicesOpener-umbrella.h"
+
+  export *
+  module * { export * }
+}

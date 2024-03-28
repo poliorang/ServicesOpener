@@ -1,6 +1,6 @@
 //
 //  OpenerViewController.swift
-//  ServicesOpener
+//  ServicesOpenerWithPinLayout
 //
 //  Created by Polina Egorova on 28.03.2024.
 //
